@@ -24,6 +24,7 @@ class GlassCard extends StatelessWidget {
     return PhysicalModel(
       color: Colors.transparent,
       elevation: elevation,
+      //shadowColor: Colors.grey.shade700,
       borderRadius: BorderRadius.circular(borderRadius),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),

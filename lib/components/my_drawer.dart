@@ -8,8 +8,6 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-
     void logout(BuildContext context) {
       showDialog(context: context, builder: (context) => LogoutDialog());
     }

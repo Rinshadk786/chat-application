@@ -1,16 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:signal/components/costum_text.dart';
-
-import '../thems/them_privider.dart';
+import '../themes/them_provider.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Dark = Provider.of<ThemeProvider>(context).isDarkMode;
     return Scaffold(
       appBar: AppBar(
         title: CostumText(
@@ -36,8 +33,8 @@ class Settings extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.bold,
             ),
-            CupertinoSwitch(
-              value: Dark,
+            Switch(
+              value: Provider.of<ThemeProvider>(context).isDarkMode,
               onChanged: (value) {
                 return Provider.of<ThemeProvider>(
                   context,
@@ -51,3 +48,8 @@ class Settings extends StatelessWidget {
     );
   }
 }
+
+/*
+changed cupertino switch to normal one,
+cupertino is lagging on android devices
+*/

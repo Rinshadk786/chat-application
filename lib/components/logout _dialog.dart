@@ -7,12 +7,13 @@ class LogoutDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
     final authService = AuthService();
     return Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: EdgeInsets.symmetric(horizontal: 40, vertical: 200),
       child: GlassCard(
+        x: 0,
+        y: 0,
         borderRadius: 10,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -23,7 +24,7 @@ class LogoutDialog extends StatelessWidget {
               "Are you sure you want to logout?",
               style: TextStyle(
                 fontSize: 18,
-                color: appColors.tertiary,
+                color: Colors.white54,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -33,17 +34,23 @@ class LogoutDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GlassCard(
+                  borderRadius: 10,
+                  x: 0,
+                  y: 0,
                   padding: EdgeInsetsGeometry.symmetric(horizontal: 5),
                   child: TextButton(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
                       "Cancel",
-                      style: TextStyle(color: appColors.tertiary),
+                      style: TextStyle(color: Colors.white54),
                     ),
                   ),
                 ),
                 SizedBox(width: 8),
                 GlassCard(
+                  borderRadius: 10,
+                  x: 0,
+                  y: 0,
                   padding: EdgeInsetsGeometry.symmetric(horizontal: 5),
                   child: TextButton(
                     onPressed: () {
@@ -52,7 +59,7 @@ class LogoutDialog extends StatelessWidget {
                     },
                     child: Text(
                       "Logout",
-                      style: TextStyle(color: appColors.primary),
+                      style: TextStyle(color: Theme.of(context).colorScheme.primary),
                     ),
                   ),
                 ),

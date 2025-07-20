@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:signal/components/costum_text.dart';
+import 'package:signal/components/glass_card.dart';
 import 'package:signal/services/authentication/auth_services.dart';
-
 import '../components/chatbubble.dart';
 import '../components/costumtextfeild.dart';
 import '../services/chat/chat_services.dart';
@@ -102,9 +102,15 @@ class ChatPage extends StatelessWidget {
               controller: _messageController,
             ),
           ),
-          IconButton(
-            onPressed: sendMessage,
-            icon: Icon(Icons.send, color: Colors.green, size: 40),
+          GlassCard(
+            borderRadius: 5,
+            padding: EdgeInsetsGeometry.all(00),
+            y: 2,
+            x: 2,
+            child: IconButton(
+              onPressed: sendMessage,
+              icon: Icon(Icons.send, color: Colors.green, size: 28),
+            ),
           ),
         ],
       ),
