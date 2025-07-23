@@ -4,11 +4,11 @@ import 'dark_mode.dart';
 import 'light_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  late ThemeData _themeData;
+  ThemeData _themeData = lightMode; // Provide a default initial value
   final String _key = "isDarkMode";
 
   ThemeProvider() {
-    _loadTheme();
+    _loadTheme(); // load saved theme from SharedPreferences
   }
 
   ThemeData get themeData => _themeData;
@@ -16,13 +16,13 @@ class ThemeProvider extends ChangeNotifier {
 
   void toggleTheme() async {
     _themeData = isDarkMode ? lightMode : darkMode;
-    await _saveTheme(isDarkMode); // Save the new value
+    await _saveTheme(isDarkMode);
     notifyListeners();
   }
 
   Future<void> _loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool isDark = prefs.getBool(_key) ?? false; // default to light
+    bool isDark = prefs.getBool(_key) ?? false;
     _themeData = isDark ? darkMode : lightMode;
     notifyListeners();
   }
